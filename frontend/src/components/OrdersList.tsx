@@ -248,7 +248,25 @@ const OrdersList: React.FC<OrdersListProps> = ({ limit, allowFiltering = true })
   return (
     <div className="w-full">
       {allowFiltering && (
+<<<<<<< Updated upstream
         <div className="bg-white shadow-sm rounded-lg p-4 mb-6">
+=======
+        <div className="bg-white shadow-sm rounded-lg p-6 mb-4">
+          <div className="flex flex-wrap justify-between items-center mb-4">
+            <h2 className="text-xl font-bold text-gray-800 mb-2 md:mb-0">Your Orders</h2>
+            
+            <Link 
+              to="/menu-items" 
+              className="flex items-center px-4 py-2 bg-gradient-to-r from-green-600 to-green-500 text-white rounded-lg text-sm font-medium hover:from-green-700 hover:to-green-600 transition-all duration-200 shadow-sm hover:shadow transform hover:scale-105"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+              </svg>
+              Place New Order
+            </Link>
+          </div>
+          
+>>>>>>> Stashed changes
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             {/* Search bar */}
             <form onSubmit={handleSearchSubmit} className="flex-1">

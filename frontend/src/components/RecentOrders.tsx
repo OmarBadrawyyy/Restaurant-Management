@@ -183,6 +183,7 @@ const RecentOrders: React.FC<RecentOrdersProps> = ({ limit = 5, showViewAll = tr
     <div className="w-full">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-xl font-semibold text-gray-800">Recent Orders</h2>
+<<<<<<< Updated upstream
         {showViewAll && orders.length > 0 && (
           <Link to="/customer?tab=orders" className="text-yellow-600 hover:text-yellow-700 text-sm font-medium flex items-center">
             View All
@@ -191,6 +192,24 @@ const RecentOrders: React.FC<RecentOrdersProps> = ({ limit = 5, showViewAll = tr
             </svg>
           </Link>
         )}
+=======
+        <div className="flex space-x-4 items-center">
+          {showViewAll && orders.length > 0 && (
+            <Link to="/customer?tab=orders" className="text-yellow-600 hover:text-yellow-700 text-sm font-medium flex items-center">
+              View All
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          )}
+          <Link to="/menu-items" className="flex items-center px-4 py-2 bg-green-600 text-white rounded-lg text-sm font-medium hover:bg-green-700 transition-all duration-200 shadow-sm hover:shadow">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+            </svg>
+            New Order
+          </Link>
+        </div>
+>>>>>>> Stashed changes
       </div>
       
       {orders.length > 0 ? (

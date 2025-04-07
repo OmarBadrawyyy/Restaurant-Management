@@ -87,11 +87,7 @@ const App: React.FC = () => {
             
             {/* Protected routes for customer users */}
             <Route element={<ProtectedRoute requiredRole={['customer']} />}>
-<<<<<<< Updated upstream
-              <Route path="/customer" element={<><Navbar /><CustomerDashboard /></>} />
-=======
               <Route path="/customer" element={<CustomerDashboard />} />
->>>>>>> Stashed changes
             </Route>
             
             {/* Protected routes for admin users */}

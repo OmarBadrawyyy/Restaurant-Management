@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from 'react';
-<<<<<<< Updated upstream
-import { useSearchParams, useNavigate } from 'react-router-dom';
-=======
 import { useSearchParams, useNavigate, Link } from 'react-router-dom';
->>>>>>> Stashed changes
 import { useAuth } from '../hooks/useAuth';
 import axios from 'axios';
 import toast from 'react-hot-toast';
@@ -21,11 +17,7 @@ type DashboardTab = 'overview' | 'orders' | 'reservations' | 'profile' | 'feedba
 type FeedbackSubtab = 'form' | 'history';
 
 const CustomerDashboard: React.FC = () => {
-<<<<<<< Updated upstream
-  const { currentUser } = useAuth();
-=======
   const { currentUser, logout } = useAuth();
->>>>>>> Stashed changes
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   
@@ -34,10 +26,7 @@ const CustomerDashboard: React.FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [feedbackSubtab, setFeedbackSubtab] = useState<FeedbackSubtab>('history');
-<<<<<<< Updated upstream
-=======
   const [showUserMenu, setShowUserMenu] = useState<boolean>(false);
->>>>>>> Stashed changes
   
   // Data state
   const [recentOrders, setRecentOrders] = useState<any[]>([]);
@@ -62,8 +51,6 @@ const CustomerDashboard: React.FC = () => {
     }
   }, [searchParams, setSearchParams]);
   
-<<<<<<< Updated upstream
-=======
   // Close user menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -79,7 +66,6 @@ const CustomerDashboard: React.FC = () => {
     };
   }, []);
   
->>>>>>> Stashed changes
   // Fetch dashboard data on component mount
   useEffect(() => {
     const fetchDashboardData = async () => {
@@ -168,12 +154,6 @@ const CustomerDashboard: React.FC = () => {
   }
   
   return (
-<<<<<<< Updated upstream
-    <div className="bg-gray-50 min-h-screen">
-      <div className="container mx-auto px-4 py-8">
-        <div className="flex flex-wrap items-center justify-between mb-8">
-          <h1 className="text-3xl font-bold text-gray-800">Welcome Back, {currentUser?.email?.split('@')[0] || 'Customer'}</h1>
-=======
     <div className="bg-gray-50 min-h-screen pb-12">
       {/* Top Navigation Bar */}
       <header className="bg-white border-b border-gray-200 sticky top-0 z-30">
@@ -282,7 +262,6 @@ const CustomerDashboard: React.FC = () => {
         {/* Welcome Banner - Now smaller since we have the top navbar */}
         <div className="flex flex-wrap items-center justify-between mb-8">
           <h1 className="text-2xl font-bold text-gray-800">Welcome Back, {currentUser?.email?.split('@')[0] || 'Customer'}</h1>
->>>>>>> Stashed changes
           <p className="text-sm text-gray-500">{new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</p>
         </div>
         
@@ -291,107 +270,15 @@ const CustomerDashboard: React.FC = () => {
           {/* Sidebar */}
           <div className="col-span-12 lg:col-span-3">
             <div className="bg-white rounded-xl shadow-sm overflow-hidden">
-<<<<<<< Updated upstream
-              <div className="p-6 bg-black text-white">
-                <div className="flex items-center space-x-4">
-                  <div className="rounded-full bg-white bg-opacity-30 h-12 w-12 flex items-center justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-=======
               <div className="p-6 bg-gradient-to-r from-black to-gray-800 text-white">
                 <div className="flex items-center space-x-4">
                   <div className="rounded-full bg-gradient-to-br from-white/30 to-white/10 h-14 w-14 flex items-center justify-center shadow-inner">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
->>>>>>> Stashed changes
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                     </svg>
                   </div>
                   <div>
                     <h2 className="font-bold text-lg">{currentUser?.email?.split('@')[0] || 'Customer'}</h2>
-<<<<<<< Updated upstream
-                    <p className="text-sm opacity-80">{currentUser?.email}</p>
-                  </div>
-                </div>
-              </div>
-              
-              <nav className="p-4">
-                <ul className="space-y-1">
-                  <li>
-                    <button
-                      onClick={() => handleTabChange('overview')}
-                      className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors ${
-                        activeTab === 'overview' 
-                          ? 'bg-black text-white' 
-                          : 'hover:bg-gray-100 text-gray-700'
-                      }`}
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                      </svg>
-                      <span>Overview</span>
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      onClick={() => handleTabChange('orders')}
-                      className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors ${
-                        activeTab === 'orders' 
-                          ? 'bg-black text-white' 
-                          : 'hover:bg-gray-100 text-gray-700'
-                      }`}
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                      </svg>
-                      <span>My Orders</span>
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      onClick={() => handleTabChange('reservations')}
-                      className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors ${
-                        activeTab === 'reservations' 
-                          ? 'bg-black text-white' 
-                          : 'hover:bg-gray-100 text-gray-700'
-                      }`}
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
-                      <span>My Reservations</span>
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      onClick={() => handleTabChange('profile')}
-                      className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors ${
-                        activeTab === 'profile' 
-                          ? 'bg-black text-white' 
-                          : 'hover:bg-gray-100 text-gray-700'
-                      }`}
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                      </svg>
-                      <span>Profile</span>
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      onClick={() => handleTabChange('feedback')}
-                      className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors ${
-                        activeTab === 'feedback' 
-                          ? 'bg-black text-white' 
-                          : 'hover:bg-gray-100 text-gray-700'
-                      }`}
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
-                      </svg>
-                      <span>Feedback</span>
-                    </button>
-                  </li>
-                </ul>
-=======
                     <div className="flex items-center text-sm opacity-80">
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -518,7 +405,6 @@ const CustomerDashboard: React.FC = () => {
                     <span>Order Now</span>
                   </button>
                 </div>
->>>>>>> Stashed changes
               </nav>
             </div>
           </div>
@@ -540,8 +426,6 @@ const CustomerDashboard: React.FC = () => {
             {/* Tab Content */}
             {activeTab === 'overview' && (
               <div className="space-y-6">
-<<<<<<< Updated upstream
-=======
                 {/* Quick Actions Section */}
                 <div className="bg-white p-6 rounded-xl shadow-sm">
                   <h3 className="text-lg font-semibold mb-4">Quick Actions</h3>
@@ -585,14 +469,11 @@ const CustomerDashboard: React.FC = () => {
                   </div>
                 </div>
                 
->>>>>>> Stashed changes
                 {/* Recent Orders Section */}
                 <div className="bg-white p-6 rounded-xl shadow-sm">
                   <RecentOrders limit={5} showViewAll={true} />
                 </div>
                 
-<<<<<<< Updated upstream
-=======
                 {/* Featured Menu Items */}
                 <div className="bg-white p-6 rounded-xl shadow-sm">
                   <div className="flex justify-between items-center mb-6">
@@ -691,30 +572,19 @@ const CustomerDashboard: React.FC = () => {
                   </div>
                 </div>
                 
->>>>>>> Stashed changes
                 {/* Upcoming Reservations Section */}
                 <div className="bg-white p-6 rounded-xl shadow-sm">
                   <div className="flex justify-between items-center mb-6">
                     <h3 className="text-xl font-bold text-gray-800">Upcoming Reservations</h3>
-<<<<<<< Updated upstream
-                    <button 
-                      onClick={() => handleTabChange('reservations')}
-                      className="text-yellow-600 hover:text-yellow-700 text-sm font-medium flex items-center"
-=======
                     <Link 
                       to="/customer?tab=reservations" 
                       className="text-blue-600 hover:text-blue-700 text-sm font-medium flex items-center"
->>>>>>> Stashed changes
                     >
                       View All
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
-<<<<<<< Updated upstream
-                    </button>
-=======
                     </Link>
->>>>>>> Stashed changes
                   </div>
                   
                   {upcomingReservations.length > 0 ? (
@@ -784,19 +654,6 @@ const CustomerDashboard: React.FC = () => {
                           </div>
                         </div>
                       ))}
-<<<<<<< Updated upstream
-                    </div>
-                  ) : (
-                    <div className="bg-gray-50 rounded-lg p-6 text-center">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-gray-400 mx-auto mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
-                      <p className="text-gray-500">No upcoming reservations found.</p>
-                      <button 
-                        onClick={() => navigate('/reservations')}
-                        className="mt-4 px-4 py-2 bg-black text-white rounded-lg text-sm font-medium"
-                      >
-=======
                       
                       {/* Add Reservation Button */}
                       <div className="flex items-center justify-center">
@@ -829,7 +686,6 @@ const CustomerDashboard: React.FC = () => {
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                         </svg>
->>>>>>> Stashed changes
                         Make a Reservation
                       </button>
                     </div>

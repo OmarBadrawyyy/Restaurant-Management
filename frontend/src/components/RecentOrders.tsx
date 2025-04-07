@@ -183,16 +183,6 @@ const RecentOrders: React.FC<RecentOrdersProps> = ({ limit = 5, showViewAll = tr
     <div className="w-full">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-xl font-semibold text-gray-800">Recent Orders</h2>
-<<<<<<< Updated upstream
-        {showViewAll && orders.length > 0 && (
-          <Link to="/customer?tab=orders" className="text-yellow-600 hover:text-yellow-700 text-sm font-medium flex items-center">
-            View All
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </Link>
-        )}
-=======
         <div className="flex space-x-4 items-center">
           {showViewAll && orders.length > 0 && (
             <Link to="/customer?tab=orders" className="text-yellow-600 hover:text-yellow-700 text-sm font-medium flex items-center">
@@ -209,7 +199,6 @@ const RecentOrders: React.FC<RecentOrdersProps> = ({ limit = 5, showViewAll = tr
             New Order
           </Link>
         </div>
->>>>>>> Stashed changes
       </div>
       
       {orders.length > 0 ? (

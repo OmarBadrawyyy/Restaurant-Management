@@ -248,9 +248,6 @@ const OrdersList: React.FC<OrdersListProps> = ({ limit, allowFiltering = true })
   return (
     <div className="w-full">
       {allowFiltering && (
-<<<<<<< Updated upstream
-        <div className="bg-white shadow-sm rounded-lg p-4 mb-6">
-=======
         <div className="bg-white shadow-sm rounded-lg p-6 mb-4">
           <div className="flex flex-wrap justify-between items-center mb-4">
             <h2 className="text-xl font-bold text-gray-800 mb-2 md:mb-0">Your Orders</h2>
@@ -266,7 +263,6 @@ const OrdersList: React.FC<OrdersListProps> = ({ limit, allowFiltering = true })
             </Link>
           </div>
           
->>>>>>> Stashed changes
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             {/* Search bar */}
             <form onSubmit={handleSearchSubmit} className="flex-1">

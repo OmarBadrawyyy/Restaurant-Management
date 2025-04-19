@@ -76,14 +76,7 @@ cd ../frontend
 npm install
 ```
 
-3. Set up environment variables
-```bash
-# In the root directory
-cp .env.example .env
-```
-Update the .env file with your configuration
-
-4. Start the development servers
+3. Start the development servers
 ```bash
 # Start backend server
 cd backend
@@ -127,25 +120,8 @@ restaurant-management/
 
 The API documentation is available at `/api/docs` when running the server. It includes detailed information about all available endpoints, request/response formats, and authentication requirements.
 
-## Contributing
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- Thanks to all contributors who have helped shape this project
-- Special thanks to the open-source community for the amazing tools and libraries
-
-## Contact
-
-Your Name - [your.email@example.com](mailto:your.email@example.com)
-
-Project Link: [https://github.com/yourusername/restaurant-management](https://github.com/yourusername/restaurant-management) 
